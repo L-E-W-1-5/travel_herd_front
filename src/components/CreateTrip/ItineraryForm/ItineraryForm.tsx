@@ -1,0 +1,125 @@
+import React from "react";
+import { useFieldArray } from "react-hook-form";
+
+
+export default function ItineraryForm({ control, register, nestIndex}:any) {
+  const { fields, append, remove} = useFieldArray({
+    control,
+    name: `event[${nestIndex}].itinerary`
+  });
+
+//[${nestIndex}]
+  return (
+    <div>
+     
+      
+        {fields.map((item, k) => {
+          return (
+            <div key={item.id} id="itinerary-page" className="form-page">
+
+              <select id="itinerary-page-item" className="form-page-input-field" 
+                name={`event[${nestIndex}].itinerary[${k}].type`}            
+                {...register(`event[${nestIndex}].itinerary[${k}].type`)}>
+                <option value="">select option</option>
+                <option value="Restaurant">restaurant</option>
+                <option value="Hotel">hotel</option>
+                <option value="Attraction">attraction</option>
+                <option value="Tour">tour</option>
+                <option value="Concert">concert</option>
+              </select>
+
+              <label className="form-page-label"> 
+              <input id="itinerary-page-item" placeholder="&nbsp;" className="form-page-input-field" 
+                name={`event[${nestIndex}].itinerary[${k}].name`}            
+                {...register(`event[${nestIndex}].itinerary[${k}].name`)}
+              />
+              <span className="placeholder">event name</span>  
+              </label>
+
+              <input id="itinerary-page-item" className="form-page-input-field date-height" 
+                type="datetime-local"
+                name={`event[${nestIndex}].itinerary[${k}].date_time`}            
+                {...register(`event[${nestIndex}].itinerary[${k}].date_time`)}
+              />
+
+              <button className="button page-alignment thin-button" type="button" onClick={() => remove(k)}>
+                delete
+              </button>
+
+            </div>
+          );
+        })}
+      
+
+        <button className="button page-alignment thin-button"
+          type="button"
+          onClick={() => {
+            append(null);
+          }}
+        >
+          add option
+        </button>
+
+    </div>
+  );
+}
+
+
+//{...register(`event[${nestIndex}].itinerary[${k}].name`)}
+
+
+// return (
+//   <div>
+   
+    
+//       {fields.map((item, k) => {
+//         return (
+//           <div key={item.id} id="itinerary-page" className="form-page">
+
+
+//             <select id="itinerary-page-item" className="form-page-input-field" 
+                       
+//               name={`event[${nestIndex}].itinerary[${k}].type`}            
+
+//               {...register(`event[${nestIndex}].itinerary[${k}].type`)}>
+//               <option value="">select option</option>
+//               <option value="Restaurant">restaurant</option>
+//               <option value="Hotel">hotel</option>
+//               <option value="Attraction">attraction</option>
+//               <option value="Tour">tour</option>
+//               <option value="Concert">concert</option>
+//             </select>
+
+
+//             <input id="itinerary-page-item" className="form-page-input-field"              
+//               name={`event[${nestIndex}].itinerary[${k}].name`}            
+//               {...register(`event[${nestIndex}].itinerary[${k}].name`)}
+//             />
+            
+//             <input id="itinerary-page-item" className="form-page-input-field"
+//               type="datetime-local"
+//               name={`event[${nestIndex}].itinerary[${k}].date_time`}            
+//               {...register(`event[${nestIndex}].itinerary[${k}].date_time`)}
+//             />
+
+//             <button className="button" type="button" onClick={() => remove(k)}>
+//               delete
+//             </button>
+
+//           </div>
+//         );
+//       })}
+    
+
+//       <button className="button page-alignment itinerary-button"
+//         type="button"
+//         onClick={() => {
+//           append(null);
+//         }}
+//       >
+//         add option
+//       </button>
+
+//   </div>
+// );
+// }
