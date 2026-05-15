@@ -35,19 +35,21 @@ const Dashboard = () => {
 
 useEffect(() => {
 
-  console.log(user);
+  
 
   const getUserToken = async () => {
+
+console.log(user.name);
 
   const accessToken = await getAccessTokenSilently({
 
       audience: `https://${domain}/api/v2/`,
   
     }); 
-    // console.log(accessToken)
-    // console.log(user?.sub)
+    console.log("access token", accessToken)
+    console.log("user sub", user?.sub)
 
-   console.log(url, accessToken);
+   console.log("effect", url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
