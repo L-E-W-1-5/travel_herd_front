@@ -46,7 +46,7 @@ useEffect(() => {
     // console.log(accessToken)
     // console.log(user?.sub)
 
-   
+   console.log(url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
