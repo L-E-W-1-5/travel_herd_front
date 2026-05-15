@@ -35,6 +35,7 @@ const Dashboard = () => {
 
 useEffect(() => {
 
+  console.log(user);
 
   const getUserToken = async () => {
 
@@ -69,6 +70,9 @@ useEffect(() => {
 
 
   function handlePage(page:string) {
+
+    console.log(url, user ? user : "no user");
+
     console.log(page)
     setPage(page)
   
