@@ -3,9 +3,10 @@ import {useState, useEffect} from 'react'
 //import VoteWrapper from './VoteWrapper/VoteWrapper'
 import { useAuth0 } from '@auth0/auth0-react'
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from 'recharts'
+import { url } from '../../url'
  
 
-const url = "https://travel-herd-api.onrender.com" 
+//const url = "https://travel-herd-api.onrender.com" 
 
 const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: current trips now has an array, votesCastByUser, that includes any id that has been voted on, for dates anyway
 //console.log(currentTrips.itineraryVotesCast)
@@ -38,12 +39,12 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
             setCategory("")
         }
 
-        if(dateVotedAlready) {
+        if(!dateVotedAlready) {
 
             checkVotes()
         }
 
-        if(category) {
+        if(!category) {
 
             checkCategory()
         }
@@ -114,8 +115,10 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
     }
 
     async function saveItineraryVote(item:any) {
-        console.log(item)
-        const response = await fetch(`${url}/api/voting/${user?.sub}`, {
+
+        const userId = localStorage.getItem("user_id");
+        console.log(item, userId)
+        const response = await fetch(`${url}/api/voting/${userId}`, {
 
             method: 'POST',
 
@@ -130,6 +133,11 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
         if (data.payload.message === "you have already voted"){
 
             alert("you have already voted on these dates.")
+        }
+
+        if (data.payload.message !== "you have already voted") {
+            alert("vote cast.")
+            //reFetch(); // or refetch tripDetails
         }
     }
 
@@ -180,7 +188,7 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
         setChosenItineraryEvent("")
         setItineraryCatVoted(false)
 
-        const isVoted = currentTrips.itineraryVotesCast.filter((item:any) => item.id === Number(e.target.value))
+        const isVoted = currentTrips.itineraryVotesCast.some((item:any) => item.id === Number(e.target.value))
         if (isVoted){
             setItineraryCatVoted(true)
             console.log(isVoted)
