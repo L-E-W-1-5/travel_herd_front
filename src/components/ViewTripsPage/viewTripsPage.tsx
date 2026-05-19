@@ -1,6 +1,6 @@
 import "./viewTripsPage.css"
 import TripCard from "./TripCard/TripCard";
-import React, {useRef, useState} from 'react';
+import {useRef, useState} from 'react';
 import leftArrow from '../../images/left-arrow.png'
 import rightArrow from '../../images/right-arrow.png'
 let count = 0

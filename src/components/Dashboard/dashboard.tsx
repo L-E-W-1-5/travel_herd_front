@@ -1,5 +1,5 @@
 import "./dashboard.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CreateTrip from "../CreateTrip/createTrip";
 import JoinTrip from "../JoinTripPage/joinTrip";
 import ViewTrips from "../ViewTripsPage/viewTripsPage";

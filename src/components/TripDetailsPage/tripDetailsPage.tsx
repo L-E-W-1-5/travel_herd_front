@@ -27,8 +27,11 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
     const [chosenItineraryEvent, setChosenItineraryEvent] = useState("")
 
     useEffect(() => {
+
         setDateAlreadyVoted(false)
+
         setCategory("")
+
     }, [tripDetails])
 
     // TODO: figure out a way to conditionally render the component, then get it to disappear once a vote has been cast..
@@ -148,12 +151,12 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
 
     }
 
-    function getInfo(category:string) {
+    function getInfo(category: string) {
         console.log(category)
         setCategory(category)
     }
 
-    function itineraryChange(e:any) {
+    function itineraryChange(e: any) {
         setChosenItineraryEvent("")
         setItineraryCatVoted(false)
 
@@ -170,9 +173,10 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
         if (chosenEvent[0].choice || chosenEvent[0].voting.length === 1){
             setChosenItineraryEvent(`your group has chosen ${chosenEvent[0].choice}`)//`on ${chosenEvent.date_time} your group chose the ${chosenEvent.type}, ${chosenEvent.choice}.`)
            // return
-        }else{
-
         }
+        // else{
+
+        // }
         console.log(chosenEvent[0].id)
         setEvent(e.target.value)
     }

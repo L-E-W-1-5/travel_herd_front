@@ -14,7 +14,8 @@ import useMultistepForm from './Hooks/useMultistepForm'
 //const url = 'http://localhost:3001'
 const url = "https://travel-herd-api.onrender.com"
 
-const CreateTrip = ({setTripDetails, pageSelect, reFetch}:any) => {
+//setTripDetails, 
+const CreateTrip = ({pageSelect, reFetch}:any) => {
 
    // const [object, setObject] = useState({})
 
@@ -81,7 +82,7 @@ function onCancel() {
     
 }
 
-async function onFetch(data:any) {
+async function onFetch(data: any) {
     const res = await fetch(`${url}/api/object`, {
         method: 'POST',
 
@@ -89,7 +90,7 @@ async function onFetch(data:any) {
 
         body: JSON.stringify(data)
     })
-    let reply = await res.json()
+    const reply = await res.json()
     console.log(reply)
     return reply
 }
