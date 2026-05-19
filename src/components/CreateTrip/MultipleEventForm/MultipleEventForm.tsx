@@ -13,43 +13,49 @@ export default function MultipleEventForm({ control, register, errors, setValue,
     name: "event"
   });
 
- 
+ //style={{alignSelf: 'flex-start'}}
 
   return (
+
   <div  className="scroll-page">
  
      {fields.map((item, index) => {
-            return (
-                <div key={item.id} className="form-page">
+
+        return (
+
+          <div key={item.id} className="form-page">
                
-                  <div style={{alignSelf: 'flex-start'}}>
-                <ItineraryForm nestIndex={index}
-                {...{control, register, errors}}
-                />
-  </div>
+              <>
+
+                  <ItineraryForm nestIndex={index}
+                    {...{control, register, errors}}
+                  />
+              </>
                 
-                <button className="button page-alignment thin-button"
+              <button className="button page-alignment thin-button"
                   type="button" onClick={() => remove(index)}>
                     delete event
-                  </button>
+              </button>
                   
-                </div>
+          </div>
               
-            )
-        })}
+        )
+
+      })}
 
 
-        <button className="button page-alignment thin-button add-event-button" 
+      <button className="button page-alignment thin-button add-event-button" 
           type="button"
           onClick={() => {
             append(null);
           }}
-        >
-          add event
-        </button>
+      >
+        add event
+
+      </button>
      
-  
-  </div>)
+  </div>
+  )
 
 }
 

@@ -14,6 +14,7 @@
     flex-direction: column;
     background-image: url(../../images/travel-bg.png);
     background-size: cover;
+    
 }
 
 .create-trip-form {
@@ -29,7 +30,10 @@
     line-height: 1.4rem;
     max-height: 45vh;
     color: var(--green);
+    overflow-y: scroll;
    }
+
+  
 
    #groupName {
     color: var(--green)
@@ -49,6 +53,20 @@
     display: flex;
     gap: .5rem;
     justify-content: flex-end;
+}
+
+.change-page-buttons button {
+    padding: 0.75rem 1.25rem;
+    background: var(--green);
+    color: var(--beige);
+    border: 2px solid var(--beige);
+    border-radius: var(--border-radius);
+    font-family: var(--font);
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 1px 2px 4px rgba(0,0,0,0.1);
+    touch-action: manipulation;
 }
 
 .create-trip-h1 {
@@ -98,8 +116,8 @@
     background: var(--beige);
     padding-left: 12px;
     border-radius: 5px;
-    width: 30vw !important;
-           }
+    width: 30vw;
+}
 
 
 .form-page-label input:not(:placeholder-shown) + .placeholder,
@@ -148,16 +166,22 @@
 
 
 #itinerary-page {
+    display: flex;
     flex-wrap: wrap;
-    height: 5vh;
+    /* height: 5vh; */
     gap:1px;
     padding-top: 20px;
+    flex-direction: row;
+    height: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
 
-#itinerary-page-item {
-    width: 21vw !important;
-}
+/* #itinerary-page-item {
+    width: 21vw;
+} */
 
 .page-alignment {
     margin-left: 47%;
@@ -165,8 +189,8 @@
 }
 
 .scroll-page {
-    overflow-y: scroll;
-    height: 330px;
+    /* overflow-y: scroll; */
+    /* height: 330px; */
     overflow-x: hidden;
 }
 
@@ -190,6 +214,39 @@
 .date-height {
    
     margin:0px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .create-trip-form {
+        width: 95vw;
+        min-width: 95vw;
+        padding: 1rem;
+    }
+
+    #date-page {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .form-page-input-field {
+        width: 160px;
+    }
+
+    #itinerary-page {
+        flex-wrap: nowrap;
+        height: auto;
+        gap:1px;
+        padding-top: 20px;
+        flex-direction: column;
+        /* width: 100%; */
+        /* align-self: center; */
+    }
+
+    #itinerary-page-item {
+        width: 90% ;
+
+    }
 }
 
 

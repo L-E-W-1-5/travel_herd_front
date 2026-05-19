@@ -7,12 +7,12 @@ import DateForm from './DateForm/DateForm'
 import GroupForm from './GroupForm/GroupForm'
 import MultipleEventForm from './MultipleEventForm/MultipleEventForm'
 import useMultistepForm from './Hooks/useMultistepForm'
-
+import { url } from '../../url'
 
 
 // import Navbar from '../NavBar/NavBar';
-//const url = 'http://localhost:3001'
-const url = "https://travel-herd-api.onrender.com"
+// const url = 'http://localhost:3001'
+// //const url = "https://travel-herd-api.onrender.com"
 
 //setTripDetails, 
 const CreateTrip = ({pageSelect, reFetch}:any) => {

@@ -9,13 +9,15 @@ export default function ItineraryForm({ control, register, nestIndex}:any) {
   });
 
 //[${nestIndex}]
+
+//className="form-page" > line 20 itinerary-page
   return (
-    <div>
+    <>
      
       
         {fields.map((item, k) => {
           return (
-            <div key={item.id} id="itinerary-page" className="form-page">
+            <div key={item.id} id="itinerary-page" >
 
               <select id="itinerary-page-item" className="form-page-input-field" 
                 name={`event[${nestIndex}].itinerary[${k}].type`}            
@@ -60,7 +62,7 @@ export default function ItineraryForm({ control, register, nestIndex}:any) {
           add option
         </button>
 
-    </div>
+    </>
   );
 }
 

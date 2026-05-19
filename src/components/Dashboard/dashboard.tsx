@@ -10,6 +10,7 @@ import Login from "../Login/login";
 import Navbar from "../NavBar/NavBar";
 import Footer from "../Footer/footer";
 // import Backpack from "../../images/backpack.png"
+import { url } from "../../url";
 
 import { AiOutlineUsergroupAdd } from "react-icons/ai";
 import { IoMdCreate } from "react-icons/io";
@@ -17,8 +18,8 @@ import { ImBinoculars } from "react-icons/im";
 //import userEvent from "@testing-library/user-event"
 
 const domain = "dev-otxf3y3m35xq561z.uk.auth0.com"
-//const url = "http://localhost:3001"
-const url = "https://travel-herd-api.onrender.com"
+// const url = "http://localhost:3001"
+// //const url = "https://travel-herd-api.onrender.com"
 
 
 const Dashboard = () => {
@@ -40,7 +41,7 @@ useEffect(() => {
 
   const getUserToken = async () => {
 
-    console.log(user.name);
+    
 
     const accessToken = await getAccessTokenSilently({
 
@@ -48,11 +49,11 @@ useEffect(() => {
   
     }); 
 
-    console.log("access token", accessToken)
+    //console.log("access token", accessToken)
 
-    console.log("user sub", user?.sub)
+    //console.log("user sub", user?.sub)
 
-    console.log("effect", url, accessToken);
+    //console.log("effect", url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
@@ -66,7 +67,9 @@ useEffect(() => {
 
     const res = await response.json()
 
-    console.log(res)
+    console.log("69", res)
+
+    console.log("71", user.name);
 
     setAllTrips(res.payload)
   }

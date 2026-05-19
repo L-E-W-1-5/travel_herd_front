@@ -14,11 +14,11 @@ nav {
 
 #nav-left, #nav-right{
   display: flex;
-  justify-content: flex-start;
+   justify-content: flex-start;
   align-items: center;
-  gap:2%;
+  /*gap:2%;
   flex-basis:50%;
-  padding: 0 0 0 1.5%;
+  padding: 0 0 0 1.5%; */
 }
 
 #nav-right {
@@ -38,7 +38,9 @@ max-height:90%;
 h2 {
     margin:0;
     color: var(--beige);
-
+    max-height: 100px;
+    overflow: hidden;
+    flex-wrap: wrap;
 }
 
 .text{
@@ -47,7 +49,7 @@ h2 {
   font-size: 1.8em;
   top: 50%;
   justify-content: left; 
-  line-height: 110px;
+  /* line-height: 110px; */
   margin-left: 10px;
   font-weight: normal;
 }
@@ -103,6 +105,28 @@ h2 {
   }
   
   
+
+  @media only screen and (max-width: 460px) {
+    nav {
+        height: 80px;
+    }
+    .text {
+        font-size: 1.2em;
+    }
+    .dashboard-btn {
+        font-size: 90%;
+    }
+    .login {
+        font-size: 90%;
+        padding: 0.5% 0.5% 0.5% 0.5%;
+        width: 60px;
+    }
+
+    #nav-right {
+        flex-direction: column;
+        justify-content: center;
+    }
+  }
 
 
   /* nav .menu-item {
