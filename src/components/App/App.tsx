@@ -24,6 +24,15 @@ function App() {
           scope="read:current_user update:current_user_metadata"
           useRefreshTokens={true}
         >
+
+        {/* <Auth0Provider
+          domain="dev-otxf3y3m35xq561z.uk.auth0.com"
+          clientId="FYGE0Lx0PPU5t9yUHOMakD0NK33AjMqE"
+          authorizationParams={{
+            redirect_uri: window.location.origin
+          }}
+          useRefreshTokens={true}
+        > */}
       
        
         <Dashboard></Dashboard>

@@ -47,10 +47,10 @@ const ViewTrips = ({setTripDetails, pageSelect, currentTrips}:any) => {
     
         <div  ref={myRef} className="view-trip-form-item"> 
  
-             {currentTrips.fullTripData && currentTrips.fullTripData.map((trip:any) => {
+             {currentTrips.fullTripData && currentTrips.fullTripData.map((trip:any, index:number) => {
                 count++
                 return (       
-                    <TripCard key={Math.random() * 1000} className="trip-card" setTripDetails={setTripDetails} handlePage={pageSelect} trip={trip}></TripCard>
+                    <TripCard key={index} className="trip-card" setTripDetails={setTripDetails} handlePage={pageSelect} trip={trip}></TripCard>
                 )
             })}
         

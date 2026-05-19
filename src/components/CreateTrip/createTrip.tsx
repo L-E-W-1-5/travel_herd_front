@@ -52,10 +52,15 @@ const CreateTrip = ({pageSelect, reFetch}:any) => {
 
 
 async function onSubmit(data: any) {
-    if(user?.sub){
-    data.admin_id = user?.sub  
+    // if(user?.sub){
+    // data.admin_id = user?.sub  
                            
+    // }
+
+    if(localStorage.getItem("user_id")){
+        data.admin_id = localStorage.getItem("user_id")
     }
+
     console.log(data)
     next()
 

@@ -30,7 +30,13 @@ const Dashboard = () => {
 
   const [page, setPage] = useState("login")
   
-  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0(); 
+  const { isAuthenticated, user, getAccessTokenSilently } = useAuth0();
+//   const { 
+//   getAccessTokenSilently,
+//   user,
+//   isAuthenticated,
+//   isLoading
+// } = useAuth0(); 
 
   const [reFetch, setFetch] = useState(true) 
 
@@ -49,11 +55,8 @@ useEffect(() => {
   
     }); 
 
-    //console.log("access token", accessToken)
+    //const accessToken = await getAccessTokenSilently();
 
-    //console.log("user sub", user?.sub)
-
-    //console.log("effect", url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
@@ -68,16 +71,71 @@ useEffect(() => {
     const res = await response.json()
 
     console.log("69", res)
-
     console.log("71", user.name);
 
-    setAllTrips(res.payload)
+    if(res.success){
+
+      localStorage.setItem("user_id", res.payload.userData[0].id)
+      console.log("user id", localStorage.getItem("user_id"))
+      setAllTrips(res.payload)
+    }
   }
 
 
     getUserToken()
 
 }, [getAccessTokenSilently, user, isAuthenticated, reFetch])
+
+
+/*
+
+useEffect(() => {
+
+  const getUserToken = async () => {
+
+    try {
+
+      const accessToken = await getAccessTokenSilently();
+
+      const response = await fetch(`${url}/api/users/${user?.sub}`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+      });
+
+      const res = await response.json();
+
+      console.log(res);
+
+      if (res.success) {
+        localStorage.setItem(
+          "user_id",
+          res.payload.userData[0].id
+        );
+
+        setAllTrips(res.payload);
+      }
+
+    } catch (err) {
+      console.error("Auth error:", err);
+    }
+  };
+
+  if (!isLoading && isAuthenticated && user) {
+    getUserToken();
+  }
+
+}, [
+  isLoading,
+  isAuthenticated,
+  user,
+  reFetch,
+  getAccessTokenSilently
+]);
+*/
 
 
 

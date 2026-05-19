@@ -230,7 +230,7 @@
     }
 
     .form-page-input-field {
-        width: 160px;
+        width: 90% !important;
     }
 
     #itinerary-page {
