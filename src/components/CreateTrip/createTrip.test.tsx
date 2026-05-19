@@ -1,5 +1,5 @@
 
-import { test } from "@jest/globals";
+//import { test } from "@jest/globals";
 import { screen, render } from '@testing-library/react';
 import CreateTrip from "./createTrip";
 

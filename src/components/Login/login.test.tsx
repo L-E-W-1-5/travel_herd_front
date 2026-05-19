@@ -1,5 +1,5 @@
 import Login from "./login";
-import { test } from "@jest/globals";
+//import { test } from "@jest/globals";
 import { screen, render } from '@testing-library/react';
 
 test("is login component renders", () =>{

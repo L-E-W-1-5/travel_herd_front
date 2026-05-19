@@ -35,18 +35,21 @@ const Dashboard = () => {
 
 useEffect(() => {
 
+  
 
   const getUserToken = async () => {
+
+console.log(user.name);
 
   const accessToken = await getAccessTokenSilently({
 
       audience: `https://${domain}/api/v2/`,
   
     }); 
-    // console.log(accessToken)
-    // console.log(user?.sub)
+    console.log("access token", accessToken)
+    console.log("user sub", user?.sub)
 
-   
+   console.log("effect", url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
@@ -69,6 +72,9 @@ useEffect(() => {
 
 
   function handlePage(page:string) {
+
+    console.log(url, user ? user : "no user");
+
     console.log(page)
     setPage(page)
   
