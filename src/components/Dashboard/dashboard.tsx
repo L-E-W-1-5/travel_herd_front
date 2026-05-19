@@ -33,23 +33,26 @@ const Dashboard = () => {
 
   const [reFetch, setFetch] = useState(true) 
 
-useEffect(() => {
 
-  
+
+
+useEffect(() => {
 
   const getUserToken = async () => {
 
-console.log(user.name);
+    console.log(user.name);
 
-  const accessToken = await getAccessTokenSilently({
+    const accessToken = await getAccessTokenSilently({
 
-      audience: `https://${domain}/api/v2/`,
+        audience: `https://${domain}/api/v2/`,
   
     }); 
+
     console.log("access token", accessToken)
+
     console.log("user sub", user?.sub)
 
-   console.log("effect", url, accessToken);
+    console.log("effect", url, accessToken);
 
     const response = await fetch(`${url}/api/users/${user?.sub}`,
       {
@@ -60,10 +63,15 @@ console.log(user.name);
                },
                body: JSON.stringify(user)
     });
+
     const res = await response.json()
+
     console.log(res)
+
     setAllTrips(res.payload)
   }
+
+
     getUserToken()
 
 }, [getAccessTokenSilently, user, isAuthenticated, reFetch])

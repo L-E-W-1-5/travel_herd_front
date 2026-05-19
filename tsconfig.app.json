@@ -23,7 +23,7 @@
     
     /* Edited */
     "strict": false,
-    "noImplicitAny": false,
+    "noImplicitAny": false, 
     "strictNullChecks": false,
     "strictFunctionTypes": false,
     "strictBindCallApply": false,

@@ -3,9 +3,9 @@ import {useState, useEffect} from 'react'
 //import VoteWrapper from './VoteWrapper/VoteWrapper'
 import { useAuth0 } from '@auth0/auth0-react'
 import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from 'recharts'
+ 
 
-
-const url = "https://travel-herd-api.onrender.com"
+const url = "https://travel-herd-api.onrender.com" 
 
 const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: current trips now has an array, votesCastByUser, that includes any id that has been voted on, for dates anyway
 //console.log(currentTrips.itineraryVotesCast)
@@ -28,17 +28,35 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
 
     useEffect(() => {
 
-        setDateAlreadyVoted(false)
+        function checkVotes() {
 
-        setCategory("")
+            setDateAlreadyVoted(false)
+        }
 
-    }, [tripDetails])
+        function checkCategory() {
+
+            setCategory("")
+        }
+
+        if(dateVotedAlready) {
+
+            checkVotes()
+        }
+
+        if(category) {
+
+            checkCategory()
+        }
+
+
+    }, [tripDetails, dateVotedAlready, category])
 
     // TODO: figure out a way to conditionally render the component, then get it to disappear once a vote has been cast..
                                         // maybe have the functionality in a seperate component that we render instead of a div?
        
 
     function handleDate() {
+
         getDateIds()
         //setDataVote(current => !current)
     }
@@ -116,7 +134,9 @@ const TripDetails = ({pageSelect, tripDetails, currentTrips}:any) => { //TODO: c
     }
 
     function getDateIds() {
-        let arr = []
+
+        const arr = []
+        
         for (let i = 0; i < currentTrips.votesCastByUser.length; i++){
             if(tripDetails.date_choices.length > 0)
             if(tripDetails.date_choices[0].date_id === currentTrips.votesCastByUser[i].date_id){
