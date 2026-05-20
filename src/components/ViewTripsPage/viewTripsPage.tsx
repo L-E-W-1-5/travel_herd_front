@@ -3,66 +3,80 @@ import TripCard from "./TripCard/TripCard";
 import {useRef, useState} from 'react';
 import leftArrow from '../../images/left-arrow.png'
 import rightArrow from '../../images/right-arrow.png'
-let count = 0
 
-const ViewTrips = ({setTripDetails, pageSelect, currentTrips}:any) => { 
+//let count = 0
 
-    const myRef = useRef<null | HTMLDivElement>(null); 
+const ViewTrips = ({ setTripDetails, pageSelect, currentTrips }: any) => {
 
-    const [scroll, setScroll] = useState(580)
+  const myRef = useRef<HTMLDivElement | null>(null);
 
-    function scrollWinRight() {
-        console.log(((count / 2) * 290) - 980)
-        if(scroll < ((count / 2) * 290)- 1350){
+  const scrollAmount = 580;
 
-        myRef.current?.scrollTo({
-            left: scroll + 580,
-            behavior: 'smooth'
-        });
-        setScroll(scroll + 580)
-        count = 0
-    }
-        //if (count > )
-        
-    }
+  function scrollWinRight() {
 
-    function scrollWinLeft() {
-        if (scroll > 290){
-       
-        console.log(scroll)
-        myRef.current?.scrollTo({
-            left: scroll -580,
-            behavior: 'smooth'
-        });
-        setScroll(scroll - 580)
-        count = 0
-    }
-    
-    }
-  
-    return (
-        
-        <div className='view-trips-div'>
-            <h1>your trips</h1>
-    
-        <div  ref={myRef} className="view-trip-form-item"> 
- 
-             {currentTrips.fullTripData && currentTrips.fullTripData.map((trip:any, index:number) => {
-                count++
-                return (       
-                    <TripCard key={index} className="trip-card" setTripDetails={setTripDetails} handlePage={pageSelect} trip={trip}></TripCard>
-                )
-            })}
-        
-        </div>
-            {/* <button className="carousel-button-right" onClick={scrollWinRight}>right</button>
-            <button className="carousel-button-left" onClick={scrollWinLeft}>left</button> */}
-            <img className="carousel-button-left" src={leftArrow} alt="left-arrow" onClick={scrollWinLeft}></img>
-            <img className="carousel-button-right" src={rightArrow} alt="right-arrow" onClick={scrollWinRight}></img>
-            <button className="view-trip-cancel-button cancel-button" onClick={() => {pageSelect("dashboard")}}>cancel</button>
-        </div>
-        
-    )
+    if (!myRef.current) return;
+
+    myRef.current.scrollBy({
+      left: scrollAmount,
+      behavior: "smooth"
+    });
+  }
+
+  function scrollWinLeft() {
+
+    if (!myRef.current) return;
+
+    myRef.current.scrollBy({
+      left: -scrollAmount,
+      behavior: "smooth"
+    });
+  }
+
+  return (
+
+    <div className='view-trips-div'>
+
+      <h1>your trips</h1>
+
+      <div ref={myRef} className="view-trip-form-item">
+
+        {currentTrips.fullTripData?.map((trip:any) => (
+
+          <TripCard
+            key={trip.id}
+            className="trip-card"
+            setTripDetails={setTripDetails}
+            handlePage={pageSelect}
+            trip={trip}
+          />
+
+        ))}
+
+      </div>
+
+      <img
+        className="carousel-button-left"
+        src={leftArrow}
+        alt="left-arrow"
+        onClick={scrollWinLeft}
+      />
+
+      <img
+        className="carousel-button-right"
+        src={rightArrow}
+        alt="right-arrow"
+        onClick={scrollWinRight}
+      />
+
+      <button
+        className="view-trip-cancel-button cancel-button"
+        onClick={() => {pageSelect("dashboard")}}
+      >
+        cancel
+      </button>
+
+    </div>
+  );
 }
 
 

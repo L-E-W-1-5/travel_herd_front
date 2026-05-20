@@ -23,14 +23,17 @@
     display: flex;
     flex-direction: row;
     width: 100vw;
+    height: 100%;
+    
 }
 
 .option-box {
+    
     border: 3px solid var(--dark-orange);
     background-color: var(--beige);
     width: 30%;
     margin: 0% 1% 3% 3%;
-    height: 60vh;
+    /* height: 100%; */
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -95,9 +98,9 @@
 }
 
 .itinerary-dropdown {
-    position: relative;
+    /* position: relative; */
 
-    bottom:120px;
+    margin-bottom: 30px;
    
 }
 
@@ -206,4 +209,35 @@ label {
 #highlighted:checked + label {
     background: blue;
     color: white;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .option-box {
+        width: 40%;
+        margin: 0% 0% 3% 3%;
+    }
+
+    .options-boxes {   
+        /* display: flex;
+        flex-direction: row;
+        width: 100vw; */
+        /* height: 100%; */
+        gap: 15px;
+        /* font-size: 0.9rem; */
+    }
+
+    .info-box {
+        width: 60%;
+        margin: 0% 3% 3% 0%;
+    }
+
+    .option-item {
+        font-size: 1.2rem;
+    }
+
+    .itinerary-choices-container {
+        flex-direction: column;
+        gap: 0;
+    }
 }
