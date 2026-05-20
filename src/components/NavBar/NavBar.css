@@ -6,7 +6,7 @@ nav {
     height: 110px;
     display: flex;
     position: relative;
-    
+    box-sizing: border-box;
     background-color: var(--green);
     z-index: 3;
    
@@ -31,6 +31,7 @@ nav {
   justify-content: flex-end;
   align-items: center;
   gap:8%;
+  width: 100%;
   min-width: 0;
   padding: 0 3% 0 0;
 }
@@ -130,10 +131,11 @@ h2 {
     }
 
     #nav-right {
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
-        
+        padding-right: 10px;
         
     }
 }
