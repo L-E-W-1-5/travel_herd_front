@@ -3,6 +3,7 @@
     left: 0%;
     width: 100vw;
     height: 100vh;
+    padding: 10px;
     position: fixed;
     background: var(--beige);
     display: flex;
@@ -31,8 +32,8 @@
     justify-content: center;
     align-items:flex-end;
     margin: 4%;
-    gap:10px;
-    width: 30%;
+    gap: 10px;
+    width: 40%;
 }
 
 .submit-join {
@@ -44,7 +45,7 @@
 .info-box-join {
     display: flex;
     flex-direction: row;
-    width: 40vw;
+    width: 70%;
     gap: 20px;
 }
 
@@ -64,5 +65,30 @@
     align-items: center;
     border-radius: var(--border-radius);
     background-color: var(--beige);
-    padding: 1.5rem
+    padding: 10px;
+}
+
+
+@media only screen and (max-width: 750px) {
+    .join-form-item {
+        width: 90%;
+    }
+
+    .info-box-join {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .input-join-form {
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .join-h2 {
+        font-size: 1.2rem;
+    }
+
+    .input-field{
+        min-width: 0;
+    }
 }
