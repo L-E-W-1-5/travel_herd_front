@@ -5,7 +5,7 @@
     width: 100vw;
     height: 100vh;
     background-color: var(--beige);
-    justify-content:space-between;
+    justify-content:space-around;
     align-items:center;
     display: flex;
     flex-direction: column;
@@ -18,7 +18,7 @@
 .sloganBox {
     background-color: #f9f7dc;
     position: relative;
-    margin-top: 18%;
+    margin-top: 10%;
     padding-left: 0.5cm;
     padding-right: 0.5cm;
   border: 1px transparent;

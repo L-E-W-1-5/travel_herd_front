@@ -10,6 +10,7 @@
 
 #dashboard-container{
     width:100%;
+    
 }
 
 #dashboard-btn-container{
@@ -32,7 +33,7 @@
 #dashboard-btn-container div {
 
     height:100%;
-    min-width: 110px;
+    min-width: 150px;
     flex-basis:15%;
     display: flex;
     flex-direction: column;
@@ -51,11 +52,12 @@
     border: 3px solid var(--green);
 }
 
-h1 {
+#dashboard h1 {
     font-size: 400%;
     font-weight: 600;
     /* margin-bottom: 10%; */
     margin-bottom: 5%;
+    padding-left: 20px; 
 }
 
 #dashboard-btn-container p {
@@ -84,13 +86,13 @@ h1 {
 }
 
 
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 500px) {
 
     #dashboard-btn-container {
         flex-direction: column;
         height: auto;
         /* min-width: 80%; */
-        gap: 10px;
+        gap: 30px;
     }
 
     .dashboard-container {
@@ -98,14 +100,15 @@ h1 {
         padding: 15px 0 15px 0;
     }
 
-    h1{
+    #dashboard h1 {
         font-size: 300%;
+        padding-left: 20px;
     }
 }
 
 @media only screen and (max-height: 550px) {
 
-    h1{
+    #dashboard h1 {
         font-size: 1.5em;
         margin-top: 15px;
         margin-bottom: 5px;
